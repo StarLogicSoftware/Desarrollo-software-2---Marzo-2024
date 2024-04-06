@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase 2303", "Desarrollo software 2 - Marzo 2024\Clase 2303.csproj", "{9ADC5D2D-4C66-418A-AE24-49786C2D4A1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase 2303-1", "Desarrollo software 2 - Marzo 2024\Clase 2303-1.csproj", "{9ADC5D2D-4C66-418A-AE24-49786C2D4A1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase 0604", "clase 0604\Clase 0604.csproj", "{C772A6FA-3F7A-4639-95AB-201D74B282B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase 0604-1", "clase 0604\Clase 0604-1.csproj", "{C772A6FA-3F7A-4639-95AB-201D74B282B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase 0604-2", "Clase 0604-2\Clase 0604-2.csproj", "{763ADB03-C401-477A-9D6B-BFB861B5353F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase 0604-2", "Clase 0604-2\Clase 0604-2.csproj", "{763ADB03-C401-477A-9D6B-BFB861B5353F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

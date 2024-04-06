@@ -27,10 +27,6 @@
 //}
 
 
-
-
-
-
 // Factura usando objetos combinados
 
 // Segunda opcion
@@ -57,12 +53,6 @@
 //factura.Tipo = "A";
 //factura.Emisor = emisor;
 //factura.Receptor = receptor;
-
-
-
-
-
-
 
 
 Factura factura = new Factura();

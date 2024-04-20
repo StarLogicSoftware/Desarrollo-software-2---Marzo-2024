@@ -1,6 +1,6 @@
 ﻿
 
-Console.WriteLine("Ingrese un numero");
+Console.WriteLine("Solicito me ingrese un numero por favor. gracias vuelva prontos");
 
 try
 {

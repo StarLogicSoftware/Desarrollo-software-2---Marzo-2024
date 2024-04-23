@@ -15,6 +15,7 @@ Si queres tener estos archivos para poderlos abrir desde tu computadora con visu
 ↘ [Visual studio community 2022](https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&passive=false&cid=2030)<br>
 ↘ [Git - sistema de control de versiones](https://git-scm.com/download/win)<br>
 ↘ [Github desktop - gestor de git](https://desktop.github.com/)<br>
+↘ [Software ideas modeler - editor diagramas UML](https://www.softwareideas.net/Download/3713/software-ideas-modeler-14-40-setup-)<br>
 <hr>
 
 > Cualquier duda o consulta podés hacerlo al grupo de whatsapp al que fuiste asignado al inscribirte

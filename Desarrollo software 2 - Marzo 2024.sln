@@ -15,10 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase 1304 2", "Clase 1304 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagramas", "Diagramas", "{F6AD80AC-AE73-4557-BA6B-4B1E9911AA3F}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\Pictures\Diagramas\Diagrama sistema estacionamiento.png = ..\..\..\Pictures\Diagramas\Diagrama sistema estacionamiento.png
 		..\..\..\Pictures\Diagramas\Diagrama-clase-1304-2.png = ..\..\..\Pictures\Diagramas\Diagrama-clase-1304-2.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstacionamientoMedido", "EstacionamientoMedido\EstacionamientoMedido.csproj", "{62F86F5D-31E5-4651-B8CD-12B13C62F62F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EstacionamientoMedido", "EstacionamientoMedido\EstacionamientoMedido.csproj", "{62F86F5D-31E5-4651-B8CD-12B13C62F62F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

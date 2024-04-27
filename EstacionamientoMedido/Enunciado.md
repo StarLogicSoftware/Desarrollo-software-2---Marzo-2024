@@ -18,3 +18,7 @@ tiempo de estacionamiento.
 - [x] cada vehiculo tiene su propio tiempo de estacionamiento
 - [x] no hay reserva de estacionamiento
 - [x] se cobra al retirar el vehiculo
+
+## Tareas a desarrollar
+- [ ] Pasar a clases el diagrama creado en clase
+- [ ] Ver tutorial de github

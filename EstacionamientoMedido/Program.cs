@@ -1,10 +1,6 @@
-﻿
-using EstacionamientoMedido;
+﻿using EstacionamientoMedido;
 
-List<Cliente> Clientes = new List<Cliente>();
-List<Vehiculo> Vehiculos = new List<Vehiculo>();
-List<PlazaEstacionamiento> PlazasEstacionamiento = new List<PlazaEstacionamiento>();
-List<Estacionamiento> Estacionamientos = new List<Estacionamiento>();
+Repositorio repo = new Repositorio();
 
 Menu();
 
@@ -26,7 +22,7 @@ void Menu()
         case 1: // cargar un nuevo cliente al sistema
 
             Cliente clienteTemporal = CargarDatosCliente();
-            Clientes.Add(clienteTemporal); // Agregamos el nuevo cliente a la lista de clientes
+            repo.Clientes.Add(clienteTemporal); // Agregamos el nuevo cliente a la lista de clientes
 
             // Clientes.Add( CargarDatosCliente() );  // Opcion de una sola linea
 
@@ -37,7 +33,7 @@ void Menu()
         case 2:
             // veo clientes registrados
 
-            MostrarClientesRegistrados(Clientes);
+            MostrarClientesRegistrados(repo.Clientes);
 
             Console.WriteLine();
             Menu();

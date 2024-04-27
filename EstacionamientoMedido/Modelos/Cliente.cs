@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstacionamientoMedido
+namespace EstacionamientoMedido.Modelos
 {
     public class Cliente
     {

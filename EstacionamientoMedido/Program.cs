@@ -1,6 +1,7 @@
-﻿using EstacionamientoMedido;
+﻿using EstacionamientoMedido.Controladores;
+using EstacionamientoMedido.Modelos;
 
-Repositorio repo = new Repositorio();
+ClienteController controladorClientes = new ClienteController();
 
 Menu();
 
@@ -22,7 +23,10 @@ void Menu()
         case 1: // cargar un nuevo cliente al sistema
 
             Cliente clienteTemporal = CargarDatosCliente();
-            repo.Clientes.Add(clienteTemporal); // Agregamos el nuevo cliente a la lista de clientes
+
+            // validaciones
+
+            controladorClientes.GuardarCliente(clienteTemporal); // Agregamos el nuevo cliente a la lista de clientes
 
             // Clientes.Add( CargarDatosCliente() );  // Opcion de una sola linea
 
@@ -33,7 +37,7 @@ void Menu()
         case 2:
             // veo clientes registrados
 
-            MostrarClientesRegistrados(repo.Clientes);
+            MostrarClientesRegistrados(controladorClientes.ObtenerClientes());
 
             Console.WriteLine();
             Menu();

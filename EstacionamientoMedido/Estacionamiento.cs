@@ -14,5 +14,6 @@ namespace EstacionamientoMedido
         public int PrecioHora { get; set; }
         public Vehiculo VehiculoEstacionado { get; set; }
         public int TotalEstacionamiento { get; set; }
+
     }
 }

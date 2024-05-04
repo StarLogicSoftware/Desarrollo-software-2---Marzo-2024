@@ -12,7 +12,6 @@ namespace EstacionamientoMedido.Modelos
         public string Modelo { get; set; }
         public string Color { get; set; }
         public string Patente { get; set; }
-        public Estacionamiento Estacionamiento { get; set; }
         public Cliente Cliente { get; set; }
     }
 }

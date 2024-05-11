@@ -61,6 +61,9 @@ namespace EstacionamientoMedido.Vistas
                     break;
 
                 case 5:
+                    vistaVehiculo.CrearVehiculo();
+                    Console.WriteLine();
+                    MostrarMenu();
 
                     break;
 

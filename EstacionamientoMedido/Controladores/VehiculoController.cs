@@ -1,5 +1,7 @@
 ﻿using EstacionamientoMedido.Helpers;
 using EstacionamientoMedido.Modelos;
+using EstacionamientoMedido.Validaciones;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +28,22 @@ namespace EstacionamientoMedido.Controladores
 
         public void GuardarVehiculo(Vehiculo v)
         {
-            repo.Vehiculos.Add(v);
+            VehiculoValidator valida = new VehiculoValidator();
+
+            ValidationResult resultadoValidacion = valida.Validate(v);
+
+            if (resultadoValidacion.IsValid)
+            {
+                repo.Vehiculos.Add(v);
+            }
+            else
+            {
+                foreach (var item in resultadoValidacion.Errors)
+                {
+                    Console.WriteLine(item.ErrorMessage);
+                }
+            }
+            
         }
 
         public List<Vehiculo> ObtenerTodos()

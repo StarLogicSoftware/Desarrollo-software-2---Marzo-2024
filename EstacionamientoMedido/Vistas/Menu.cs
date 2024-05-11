@@ -11,6 +11,7 @@ namespace EstacionamientoMedido.Vistas
     {
         ClienteVista vistaCliente = new ClienteVista();
         VehiculoVista vistaVehiculo = new VehiculoVista();
+        EstacionamientoVista vistaEstacionamiento = new EstacionamientoVista();
 
         public void MostrarMenu()
         {
@@ -34,6 +35,14 @@ namespace EstacionamientoMedido.Vistas
 
             switch (eleccion)
             {
+                case 1:
+                    Console.WriteLine();
+                    vistaEstacionamiento.IniciarEstacionamiento();
+
+                    Console.WriteLine();
+                    MostrarMenu();
+
+                    break;
                 case 3:
 
                     vistaCliente.CargarDatosCliente();

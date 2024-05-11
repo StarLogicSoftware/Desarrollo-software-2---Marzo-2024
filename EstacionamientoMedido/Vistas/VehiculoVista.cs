@@ -1,4 +1,5 @@
 ﻿using EstacionamientoMedido.Controladores;
+using EstacionamientoMedido.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,18 @@ namespace EstacionamientoMedido.Vistas
                 Console.WriteLine($"{item.Patente} - {item.Marca} {item.Modelo}");
             }
             Console.WriteLine();
+        }
+
+        public void CrearVehiculo()
+        {
+            Vehiculo VehiculoCargar = new Vehiculo();
+
+            Console.Write("Marca: ");
+            VehiculoCargar.Marca = Console.ReadLine();
+            Console.Write("Patente: ");
+            VehiculoCargar.Patente = Console.ReadLine();
+
+            vehiculoController.GuardarVehiculo(VehiculoCargar);
         }
     }
 }

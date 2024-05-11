@@ -10,7 +10,19 @@ namespace EstacionamientoMedido.Controladores
 {
     public class VehiculoController
     {
-        Repositorio repo = new Repositorio();
+        Repositorio repo = Repositorio.ObtenerInstancia();
+
+        public bool ExistePatente(string patente)
+        {
+            return repo.Vehiculos.Any(x => x.Patente == patente);
+
+            //bool resultado;
+
+            //resultado = repo.Vehiculos.Any(x=> x.Patente == patente);
+            //resultado = repo.Vehiculos.Where(x => x.Patente == patente).Any();
+
+            //return resultado;
+        }
 
         public void GuardarVehiculo(Vehiculo v)
         {
@@ -40,26 +52,14 @@ namespace EstacionamientoMedido.Controladores
             repo.Vehiculos.Remove(vehiculoAEliminar);
         }
 
-        public GestorRespuesta<Vehiculo> ObtenerVehiculoPorPatente(string patente)
+        public Vehiculo ObtenerVehiculoPorPatente(string patente)
         {
-            Vehiculo vehiculoBuscado = repo.Vehiculos.Find(x => x.Patente == patente);
+            // Esto es sin usar LinQ
+            //Vehiculo vehiculoBuscado = repo.Vehiculos.Find(x => x.Patente == patente);
+            
+            Vehiculo vehiculoBuscado = repo.Vehiculos.Where(x => x.Patente == patente).FirstOrDefault();
 
-            if (vehiculoBuscado == null)
-            {
-                return new GestorRespuesta<Vehiculo>()
-                {
-                    HayError = true,
-                    MensajeError = "No se encuentra vehiculo con esa patente",
-                };
-            }
-            else
-            {
-                return new GestorRespuesta<Vehiculo>()
-                {
-                    HayError = false,
-                    Respuesta = vehiculoBuscado,
-                };
-            }
+            return vehiculoBuscado;
         }
     }
 }

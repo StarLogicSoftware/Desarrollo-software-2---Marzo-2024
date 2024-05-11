@@ -11,7 +11,7 @@ namespace EstacionamientoMedido.Controladores
 {
     public class ClienteController
     {
-        Repositorio repo = new Repositorio();
+        Repositorio repo = Repositorio.ObtenerInstancia();
 
         public void GuardarCliente(Cliente c)
         {

@@ -6,16 +6,40 @@ using System.Threading.Tasks;
 
 namespace EstacionamientoMedido.Modelos
 {
-    public class Repositorio
+    /*
+     * Patron de diseño SINGLETONE
+     * Reglas a aplicar
+        1 -> Constructor PRIVADO
+        2 -> Metodo para obtener instancia
+            2.1 -> si no existe la crea, y si existe devuelve la misma
+        3 -> El metodo y la instancia tiene que ser estatico */
+
+    public class Repositorio 
     {
         public List<Cliente> Clientes = new List<Cliente>();
         public List<Vehiculo> Vehiculos = new List<Vehiculo>();
         public List<PlazaEstacionamiento> PlazasEstacionamiento = new List<PlazaEstacionamiento>();
         public List<Estacionamiento> Estacionamientos = new List<Estacionamiento>();
 
-        public Repositorio()
+        private static Repositorio Instancia;
+
+        private Repositorio()
         {
             PrecargarDatos();
+        }
+        
+        public static Repositorio ObtenerInstancia()
+        {
+            if(Instancia == null)
+            {
+                Instancia = new Repositorio();
+
+                return Instancia;
+            }
+            else
+            {
+                return Instancia;
+            }
         }
 
         private void PrecargarDatos()

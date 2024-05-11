@@ -15,6 +15,13 @@ namespace EstacionamientoMedido.Modelos
 
         public Repositorio()
         {
+            PrecargarDatos();
+        }
+
+        private void PrecargarDatos()
+        {
+            // Clientes
+
             Clientes.Add(new Cliente()
             {
                 Nombre = "Pepe",
@@ -28,6 +35,36 @@ namespace EstacionamientoMedido.Modelos
                 Apellido = "Fernandez",
                 Telefono = "654321",
                 Email = "estesitiene@gmail.com",
+            });
+
+            // Vehiculos
+            Vehiculos.Add(new Vehiculo()
+            {
+                Marca = "Fiat",
+                Color = "Rojo",
+                Patente="ABC123",
+                Modelo = "Palio"
+            });
+            Vehiculos.Add(new Vehiculo()
+            {
+                Marca = "Fiat",
+                Modelo = "Cronos",
+                Color = "Blanco",
+                Patente = "AB123CD",
+            });
+
+            //Plazas estacionamiento
+            PlazasEstacionamiento.Add(new PlazaEstacionamiento()
+            {
+                Nombre= "A"
+            });
+            PlazasEstacionamiento.Add(new PlazaEstacionamiento()
+            {
+                Nombre = "B"
+            });
+            PlazasEstacionamiento.Add(new PlazaEstacionamiento()
+            {
+                Nombre = "C"
             });
         }
     }

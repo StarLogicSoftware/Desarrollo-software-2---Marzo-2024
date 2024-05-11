@@ -33,7 +33,7 @@ namespace EstacionamientoMedido.Vistas
             List<Cliente> listadoClientes = controladorClientes.ObtenerClientes();
 
             Console.WriteLine("Listado de clientes cargados en el sistema");
-
+            Console.WriteLine();
             foreach (var item in listadoClientes)
             {
                 Console.WriteLine($"> nombre: {item.Nombre} {item.Apellido} - tel: {item.Telefono} - email: {item.Email}");

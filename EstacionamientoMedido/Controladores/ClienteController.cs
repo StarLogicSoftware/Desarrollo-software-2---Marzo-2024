@@ -41,10 +41,6 @@ namespace EstacionamientoMedido.Controladores
             repo.Clientes.Remove(clienteAEliminar);
         }
 
-        public void AsignarVehiculo()
-        {
-
-        }
 
         public GestorRespuesta<Cliente> ObtenerClientePorDNI(string dni)
         {

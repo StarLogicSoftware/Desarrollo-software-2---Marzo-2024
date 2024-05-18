@@ -70,5 +70,17 @@ namespace EstacionamientoMedido.Controladores
 
             return estacionamientos;
         }
+
+        public bool YaEstaEstacionado(string patente)
+        {
+            bool resultado;
+
+            resultado = repo.Estacionamientos
+                .Where( x => x.VehiculoEstacionado.Patente == patente)
+                .Where( x => x.Estado == EstadoEstacionamiento.Activo)
+                .Any();
+
+            return resultado;
+        }
     }
 }

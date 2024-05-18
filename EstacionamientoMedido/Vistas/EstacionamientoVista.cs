@@ -43,22 +43,23 @@ namespace EstacionamientoMedido.Vistas
 
             if (estacionamientos.Count == 0)
             {
-                Console.WriteLine("No hay estacionamientos");
+                Console.WriteLine("No hay estacionamientos para este vehiculo");
             }
             else
             {
                 foreach (var item in estacionamientos)
                 {
-                    if(item.Estado == Enumeraciones.EstadoEstacionamiento.Activo)
+                    if (item.Estado == Enumeraciones.EstadoEstacionamiento.Activo)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($" > {item.VehiculoEstacionado.Patente} - {item.Entrada}");
+
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($" > {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
                     }
-
-                    Console.WriteLine($"> {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
 
                     Console.ForegroundColor = ConsoleColor.Gray;
                 }

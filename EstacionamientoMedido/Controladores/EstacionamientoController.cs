@@ -11,6 +11,7 @@ namespace EstacionamientoMedido.Controladores
     {
         Repositorio repo = Repositorio.ObtenerInstancia();
         VehiculoController controladorVehiculo = new VehiculoController();
+        private const int PrecioPorHora = 2000;
 
         public void IniciarEstacionamiento(string patente)
         {
@@ -19,26 +20,39 @@ namespace EstacionamientoMedido.Controladores
             Estacionamiento estacionamiento = new Estacionamiento();
             estacionamiento.Entrada = DateTime.Now;
             estacionamiento.VehiculoEstacionado = vehiculo;
-            estacionamiento.PrecioHora = 2000;
+            estacionamiento.PrecioHora = PrecioPorHora;
 
             repo.Estacionamientos.Add(estacionamiento);
         }
 
-        public void FinalizarEstacionamiento(string patente)
+        public Estacionamiento FinalizarEstacionamiento(string patente)
         {
-            Estacionamiento salida = repo.Estacionamientos
+            Estacionamiento salidaVehiculo = repo.Estacionamientos
                 .Where(x=> x.VehiculoEstacionado.Patente == patente)
                 //.Where(x=> x.Salida == null)
                 .OrderBy(x=> x.Entrada)
                 .Single();
 
-            repo.Estacionamientos.Remove(salida);
+            repo.Estacionamientos.Remove(salidaVehiculo);
 
-            salida.Salida = DateTime.Now;
-            // TAREA: Calculo del precio total
-            salida.TotalEstacionamiento = 0;
+            salidaVehiculo.Salida = DateTime.Now;
 
-            repo.Estacionamientos.Add(salida);
+            TimeSpan tiempo = salidaVehiculo.Salida - salidaVehiculo.Entrada;
+
+            double horas = tiempo.TotalHours;
+
+            if(horas < 1)
+            {
+                salidaVehiculo.TotalEstacionamiento = PrecioPorHora;
+            }
+            else
+            {
+                salidaVehiculo.TotalEstacionamiento = Convert.ToInt32( horas * PrecioPorHora);
+            }
+
+            repo.Estacionamientos.Add(salidaVehiculo);
+
+            return salidaVehiculo;
         }
     }
 }

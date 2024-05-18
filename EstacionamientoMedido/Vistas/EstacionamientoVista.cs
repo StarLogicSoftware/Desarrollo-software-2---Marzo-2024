@@ -36,5 +36,10 @@ namespace EstacionamientoMedido.Vistas
 
             controladorEstacionamiento.FinalizarEstacionamiento(patente);
         }
+
+        public void VerEstacionamientos()
+        {
+
+        }
     }
 }

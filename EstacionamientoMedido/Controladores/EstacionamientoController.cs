@@ -12,7 +12,6 @@ namespace EstacionamientoMedido.Controladores
         Repositorio repo = Repositorio.ObtenerInstancia();
         VehiculoController controladorVehiculo = new VehiculoController();
         private const int PrecioPorHora = 2000;
-
         public void IniciarEstacionamiento(string patente)
         {
             Vehiculo vehiculo = controladorVehiculo.ObtenerVehiculoPorPatente(patente);
@@ -24,7 +23,6 @@ namespace EstacionamientoMedido.Controladores
 
             repo.Estacionamientos.Add(estacionamiento);
         }
-
         public Estacionamiento FinalizarEstacionamiento(string patente)
         {
             Estacionamiento salidaVehiculo = repo.Estacionamientos
@@ -54,5 +52,20 @@ namespace EstacionamientoMedido.Controladores
 
             return salidaVehiculo;
         }
+        public List<Estacionamiento> ObtenerTodos()
+        {
+            return repo.Estacionamientos;
+        }
+        public List<Estacionamiento> ObtenerEstacionamientosPorPatente(string patente)
+        {
+            List<Estacionamiento> estacionamientos;
+
+            estacionamientos = repo.Estacionamientos
+                .Where(x => x.VehiculoEstacionado.Patente == patente)
+                .ToList();
+
+            return estacionamientos;
+        }
+
     }
 }

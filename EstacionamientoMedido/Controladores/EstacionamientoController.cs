@@ -66,6 +66,5 @@ namespace EstacionamientoMedido.Controladores
 
             return estacionamientos;
         }
-
     }
 }

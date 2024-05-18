@@ -27,8 +27,9 @@ namespace EstacionamientoMedido.Vistas
             Console.WriteLine("---------------------------");
             Console.WriteLine("5- Cargar Vehiculo");
             Console.WriteLine("6- Ver vehiculos cargados");
+            Console.WriteLine("7- Ver estacionamientos");
             Console.WriteLine("---------------------------");
-            Console.WriteLine("7- Salir");
+            Console.WriteLine("8- Salir");
             Console.WriteLine();
             Console.Write("Opcion: ");
             eleccion = int.Parse(Console.ReadLine());
@@ -73,7 +74,13 @@ namespace EstacionamientoMedido.Vistas
                     MostrarMenu();
                     break;
 
-                case 7:
+                case 7: // ver estacionmaientos
+                    vistaEstacionamiento.VerEstacionamientos();
+                    Console.WriteLine();
+                    MostrarMenu();
+                    break;
+
+                case 8:
                     Environment.Exit(0);
                     break;
 

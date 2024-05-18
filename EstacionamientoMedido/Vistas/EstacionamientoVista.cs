@@ -39,7 +39,19 @@ namespace EstacionamientoMedido.Vistas
 
         public void VerEstacionamientos()
         {
+            List<Estacionamiento> estacionamientos = controladorEstacionamiento.ObtenerTodos();
 
+            if (estacionamientos.Count == 0)
+            {
+                Console.WriteLine("No hay estacionamientos");
+            }
+            else
+            {
+                foreach (var item in estacionamientos)
+                {
+                 Console.WriteLine($"> {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
+                }
+            }
         }
     }
 }

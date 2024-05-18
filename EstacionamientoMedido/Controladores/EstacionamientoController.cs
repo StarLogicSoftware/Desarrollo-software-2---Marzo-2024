@@ -1,4 +1,5 @@
 ﻿using EstacionamientoMedido.Modelos;
+using EstacionamientoMedido.Enumeraciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace EstacionamientoMedido.Controladores
             estacionamiento.Entrada = DateTime.Now;
             estacionamiento.VehiculoEstacionado = vehiculo;
             estacionamiento.PrecioHora = PrecioPorHora;
+            estacionamiento.Estado = EstadoEstacionamiento.Activo;
 
             repo.Estacionamientos.Add(estacionamiento);
         }
@@ -47,6 +49,8 @@ namespace EstacionamientoMedido.Controladores
             {
                 salidaVehiculo.TotalEstacionamiento = Convert.ToInt32( horas * PrecioPorHora);
             }
+
+            salidaVehiculo.Estado = EstadoEstacionamiento.Terminado;
 
             repo.Estacionamientos.Add(salidaVehiculo);
 

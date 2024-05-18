@@ -44,6 +44,15 @@ namespace EstacionamientoMedido.Vistas
                     MostrarMenu();
 
                     break;
+
+                case 2:
+
+                    vistaEstacionamiento.FinalizarEstacionamiento();
+                    Console.WriteLine();
+                    MostrarMenu();
+
+                    break;
+
                 case 3:
 
                     vistaCliente.CargarDatosCliente();
@@ -80,7 +89,13 @@ namespace EstacionamientoMedido.Vistas
                     MostrarMenu();
                     break;
 
-                case 8:
+                case 8: // ver estacionmaientos
+                    vistaEstacionamiento.VerEstacionamientos();
+                    Console.WriteLine();
+                    MostrarMenu();
+                    break;
+
+                case 9:
                     Environment.Exit(0);
                     break;
 

@@ -20,7 +20,7 @@ namespace EstacionamientoMedido.Vistas
             Console.Write("Ingrese patente de entrada: ");
             string patente = Console.ReadLine();
 
-            if ( !controladorVehiculo.ExistePatente(patente))
+            if (!controladorVehiculo.ExistePatente(patente))
             {
                 vistaVehiculo.CrearVehiculo();
             }
@@ -49,7 +49,18 @@ namespace EstacionamientoMedido.Vistas
             {
                 foreach (var item in estacionamientos)
                 {
-                 Console.WriteLine($"> {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
+                    if(item.Estado == Enumeraciones.EstadoEstacionamiento.Activo)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+
+                    Console.WriteLine($"> {item.VehiculoEstacionado.Patente} - {item.Entrada} / {item.Salida}");
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
             }
         }

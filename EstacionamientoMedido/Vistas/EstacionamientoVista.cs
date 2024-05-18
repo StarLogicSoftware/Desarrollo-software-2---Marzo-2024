@@ -25,9 +25,17 @@ namespace EstacionamientoMedido.Vistas
                 vistaVehiculo.CrearVehiculo();
             }
 
-            controladorEstacionamiento.IniciarEstacionamiento(patente);
+            if (!controladorEstacionamiento.YaEstaEstacionado(patente))
+            {
+                controladorEstacionamiento.IniciarEstacionamiento(patente);
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Ya hay un vehiculo estacionado con esta patente");
+                Console.WriteLine();
+            }
         }
-
         public void FinalizarEstacionamiento()
         {
             Console.WriteLine();

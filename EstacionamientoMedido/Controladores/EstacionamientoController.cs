@@ -17,11 +17,7 @@ namespace EstacionamientoMedido.Controladores
         {
             Vehiculo vehiculo = controladorVehiculo.ObtenerVehiculoPorPatente(patente);
 
-            Estacionamiento estacionamiento = new Estacionamiento();
-            estacionamiento.Entrada = DateTime.Now;
-            estacionamiento.VehiculoEstacionado = vehiculo;
-            estacionamiento.PrecioHora = PrecioPorHora;
-            estacionamiento.Estado = EstadoEstacionamiento.Activo;
+            Estacionamiento estacionamiento = new Estacionamiento(vehiculo, PrecioPorHora);
 
             repo.Estacionamientos.Add(estacionamiento);
         }
@@ -29,28 +25,12 @@ namespace EstacionamientoMedido.Controladores
         {
             Estacionamiento salidaVehiculo = repo.Estacionamientos
                 .Where(x=> x.VehiculoEstacionado.Patente == patente)
-                //.Where(x=> x.Salida == null)
                 .OrderBy(x=> x.Entrada)
                 .Single();
 
             repo.Estacionamientos.Remove(salidaVehiculo);
 
-            salidaVehiculo.Salida = DateTime.Now;
-
-            TimeSpan tiempo = salidaVehiculo.Salida - salidaVehiculo.Entrada;
-
-            double horas = tiempo.TotalHours;
-
-            if(horas < 1)
-            {
-                salidaVehiculo.TotalEstacionamiento = PrecioPorHora;
-            }
-            else
-            {
-                salidaVehiculo.TotalEstacionamiento = Convert.ToInt32( horas * PrecioPorHora);
-            }
-
-            salidaVehiculo.Estado = EstadoEstacionamiento.Terminado;
+            salidaVehiculo.SalidaEstacionamiento();
 
             repo.Estacionamientos.Add(salidaVehiculo);
 

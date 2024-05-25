@@ -1,10 +1,6 @@
 ﻿using EstacionamientoMedido.Modelos;
 using EstacionamientoMedido.Enumeraciones;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Mapster;
 
 namespace EstacionamientoMedido.Controladores
 {
@@ -36,9 +32,9 @@ namespace EstacionamientoMedido.Controladores
 
             return salidaVehiculo;
         }
-        public List<Estacionamiento> ObtenerTodos()
+        public List<EstacionamientoVistaDTO> ObtenerTodos()
         {
-            return repo.Estacionamientos;
+            return repo.Estacionamientos.Adapt<EstacionamientoVistaDTO>();
         }
         public List<Estacionamiento> ObtenerEstacionamientosPorPatente(string patente)
         {

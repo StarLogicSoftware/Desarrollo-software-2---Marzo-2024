@@ -30,6 +30,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polimorfismo", "Polimorfism
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM-SqLite", "ORM-SqLite\ORM-SqLite.csproj", "{4D5F679E-2327-4821-97C6-3B5B04F41E78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TODOList", "TODOList\TODOList.csproj", "{68E4DEEB-D3DB-4E73-9690-EA832DE00777}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{4D5F679E-2327-4821-97C6-3B5B04F41E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D5F679E-2327-4821-97C6-3B5B04F41E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D5F679E-2327-4821-97C6-3B5B04F41E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E4DEEB-D3DB-4E73-9690-EA832DE00777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E4DEEB-D3DB-4E73-9690-EA832DE00777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E4DEEB-D3DB-4E73-9690-EA832DE00777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E4DEEB-D3DB-4E73-9690-EA832DE00777}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

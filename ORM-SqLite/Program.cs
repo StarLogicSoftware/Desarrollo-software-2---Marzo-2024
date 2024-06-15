@@ -4,87 +4,11 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-var personas = ObtenerTodos();
+var repo = new RepositorioGenerico<Persona>();
 
-foreach (var item in personas)
-{
-    Console.WriteLine($"id: {item.Id} - data: {item.Nombre},{item.Apellido} ");
-}
+var persona = new Persona() { Nombre = "carlos", Apellido = "Rubiez" };
 
-var personaAModificar = ObtenerPorId(2);
-
-personaAModificar.Apellido = "Gonzalez";
-
-var personaModificada = Actualizar(personaAModificar);
-
-
-
-personas = ObtenerTodos();
-
-foreach (var item in personas)
-{
-    Console.WriteLine($"id: {item.Id} - data: {item.Nombre},{item.Apellido} ");
-}
-
-Persona Crear(Persona p)
-{
-    using (AppDbContext context = new AppDbContext())
-    {
-        context.Database.EnsureCreated();
-
-        context.Personas.Add(p);
-
-        context.SaveChanges();
-    }
-
-    return p;
-}
-
-Persona ObtenerPorId(int id)
-{
-    Persona p;
-
-    using (AppDbContext context = new AppDbContext())
-    {
-        p = context.Personas.Where(x => x.Id == id).First();
-    }
-
-    return p;
-}
-
-List<Persona> ObtenerTodos()
-{
-    List<Persona> personas;
-
-    using (AppDbContext context = new AppDbContext())
-    {
-        personas = context.Personas.ToList();
-    }
-
-    return personas;
-}
-
-Persona Actualizar(Persona p)
-{
-    using (AppDbContext context = new AppDbContext())
-    {
-        context.Personas.Update(p);
-
-        context.SaveChanges();
-    }
-
-    return p;
-}
-
-void Eliminar(Persona p)
-{
-    using (AppDbContext context = new AppDbContext())
-    {
-        context.Personas.Remove(p);
-
-        context.SaveChanges();
-    }
-}
+repo.Crear(persona);
 
 class AppDbContext : DbContext
 {
@@ -99,7 +23,7 @@ class AppDbContext : DbContext
     public DbSet<Persona> Personas { get; set; }
 }
 
-class BaseEntidad
+abstract class BaseEntidad
 {
     public int Id { get; set; }
 }

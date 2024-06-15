@@ -3,7 +3,6 @@
 // Entity Framework Core
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 
 // CRUD -> Create, Read, Update, Delete
@@ -72,7 +71,8 @@ class AppDbContext : DbContext
     {
         base.OnConfiguring(optionsBuilder);
 
-        optionsBuilder.UseInMemoryDatabase("Db");
+        //optionsBuilder.UseInMemoryDatabase("Db");
+        optionsBuilder.UseSqlite("Data Source=datos.db");
     }
 
     // dice que a "Persona" Lo transforma en una tabla en la BD
@@ -87,5 +87,7 @@ class Persona // Entidad -> Modelo
     public string Nombre { get; set; }
     [Required]
     public string Apellido { get; set; }
+
+    public int Edad { get; set; }
 
 }

@@ -2,25 +2,25 @@
 // ORM -> Object Relational Mapping
 // Entity Framework Core
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 // CRUD -> Create, Read, Update, Delete
 
-void Crear()
+Persona Crear(Persona p)
 {
-    Persona p = new Persona();
-    p.Nombre = "Nicolas";
-    p.Apellido = "Fumo";
-
     using (AppDbContext context = new AppDbContext())
     {
         context.Personas.Add(p);
 
         context.SaveChanges();
     }
+
+    return p;
 }
 
-void ObtenerPorId(int id)
+Persona ObtenerPorId(int id)
 {
     Persona p;
 
@@ -28,9 +28,11 @@ void ObtenerPorId(int id)
     {
         p = context.Personas.Where(x => x.Nombre == "nicolas").First();
     }
+
+    return p;
 }
 
-void ObtenerTodos()
+List<Persona> ObtenerTodos()
 {
     List<Persona> personas;
 
@@ -38,30 +40,26 @@ void ObtenerTodos()
     {
         personas = context.Personas.ToList();
     }
+
+    return personas;
 }
 
-void Actualizar(int id)
+Persona Actualizar(Persona p)
 {
-    Persona p;
-
     using (AppDbContext context = new AppDbContext())
     {
-        p = context.Personas.Where(x => x.Id == id).First();
-
-        p.Nombre = "Pepe";
+        context.Personas.Update(p);
 
         context.SaveChanges();
     }
+
+    return p;
 }
 
-void Eliminar(int id)
+void Eliminar(Persona p)
 {
-    Persona p;
-
     using (AppDbContext context = new AppDbContext())
     {
-        p = context.Personas.Where(x => x.Id == id).First();
-
         context.Personas.Remove(p);
 
         context.SaveChanges();
@@ -84,6 +82,10 @@ class AppDbContext : DbContext
 class Persona // Entidad -> Modelo
 {
     public int Id { get; set; } // Por convencion se debe llamar "Id"
+
+    [Required(ErrorMessage ="El nombre de la persona es requerido")]
     public string Nombre { get; set; }
+    [Required]
     public string Apellido { get; set; }
+
 }

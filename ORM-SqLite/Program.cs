@@ -27,7 +27,7 @@ class AppDbContext : DbContext
         optionsBuilder.UseSqlite($"Data Source={rutaBd}");
        
        // Forma antigua, donde cada version del programa tiene su propia db
-       // optionsBuilder.UseSqlite("Data Source=datos.db");
+        //optionsBuilder.UseSqlite("Data Source=datos.db");
     }
 
     // dice que a "Persona" Lo transforma en una tabla en la BD

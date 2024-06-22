@@ -15,8 +15,19 @@ class AppDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
+        // Nueva forma para evitar tener mas de un archivo de BD
+        // Aqui obtenemos la ruta de donde estamos ejecutando la aplicación
+        var rutaBase = AppDomain.CurrentDomain.BaseDirectory;
+        var rutaProyecto = Path.GetFullPath(Path.Combine(rutaBase, @"..\..\..\"));
 
-        optionsBuilder.UseSqlite("Data Source=datos.db");
+        // Crea la ruta del archivo dinamicamente, para usar siempre la misma
+        var rutaBd = Path.Combine(rutaProyecto, "sqlite.db");
+
+        // Y usamos esta ruta para los proyectos
+        optionsBuilder.UseSqlite($"Data Source={rutaBd}");
+       
+       // Forma antigua, donde cada version del programa tiene su propia db
+       // optionsBuilder.UseSqlite("Data Source=datos.db");
     }
 
     // dice que a "Persona" Lo transforma en una tabla en la BD
